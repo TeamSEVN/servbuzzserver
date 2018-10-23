@@ -20,7 +20,7 @@ db.once("open", () => {
   app.emit("ready");
 });
 app.on("ready", () => {
-  let server = app.listen(8080, () => {
+  let server = app.listen(process.env.PORT || 8080, () => {
     let port = server.address().port;
     console.log("running on", port);
   });
