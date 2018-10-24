@@ -3,9 +3,9 @@ let User = require("../models/User");
 
 router.post("/signup", (req, res) => {
   let password = req.body.password;
-  let username = req.body.username;
+  let email = req.body.email;
   let newUser = new User();
-  newUser.username = username;
+  newUser.email = email;
   newUser.password = newUser.generateHash(password);
   newUser
     .save()
@@ -15,15 +15,15 @@ router.post("/signup", (req, res) => {
 
 router.post("/signin", (req, res) => {
   let password = req.body.password;
-  let username = req.body.username;
-  User.findOne({ username: username })
+  let email = req.body.email;
+  User.findOne({ email: email })
     .then(result => {
       if (result && result.validPassword(password)) {
         let { password, ...noPassword } = result._doc;
         res.send(noPassword);
       } else {
         console.log(result);
-        res.send("cannot find user");
+        res.send("cannot find email");
       }
     })
     .catch(error => res.send(error.message));
