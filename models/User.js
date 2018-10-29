@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 let bcrypt = require("bcryptjs");
 
-let EmailSchema = new mongoose.Schema(
+let UserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -11,11 +11,11 @@ let EmailSchema = new mongoose.Schema(
   { collection: "siteUsers" }
 );
 
-EmailSchema.methods.generateHash = password =>
+UserSchema.methods.generateHash = password =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 
-EmailSchema.methods.validPassword = function (password) {
+UserSchema.methods.validPassword = function (password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-module.exports = mongoose.model("Users", EmailSchema);
+module.exports = mongoose.model("Users", UserSchema);
