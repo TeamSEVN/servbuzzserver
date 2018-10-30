@@ -14,4 +14,4 @@ EmailSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-module.exports = mongoose.model("Users", EmailSchem
+module.exports = mongoose.model("Users", EmailSchema);
