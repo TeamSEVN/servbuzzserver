@@ -8,7 +8,7 @@ let UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     signUpDate: { type: Date, default: Date.now() }
   },
-  { collection: "SiteUsers" }
+  { collection: "ServiceBuzzUsers" }
 );
 
 UserSchema.methods.generateHash = password =>
