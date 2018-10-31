@@ -2,11 +2,11 @@ let router = require("express").Router();
 let User = require("../models/User");
 
 //get a list of users
-router.get("/", (req, res) => {
-  User.find()
-    .then(result => res.send(result))
-    .catch(error => res.status(500).send(error));
-});
+// router.get("/", (req, res) => {
+//   User.find()
+//     .then(result => res.send(result))
+//     .catch(error => res.status(500).send(error));
+// });
 
 
 router.post("/signup", (req, res) => {
@@ -42,16 +42,16 @@ router.post("/signin", (req, res) => {
     .catch(error => res.send(error.message));
 });
 
-//checks for email being in the database
-router.post("/check", (req, res) => {
-  let email = req.body.email;
-  User.find({ email: email })
-    .then(result =>
-      res
-        .status(200)
-        .send({ count: result.length })
-        .catch(error => res.send(error.message))
-    );
-});
+// //checks for email being in the database
+// router.post("/check", (req, res) => {
+//   let email = req.body.email;
+//   User.find({ email: email })
+//     .then(result =>
+//       res
+//         .status(200)
+//         .send({ count: result.length })
+//         .catch(error => res.send(error.message))
+//     );
+// });
 
 module.exports = router;

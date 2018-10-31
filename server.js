@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan("dev"));
 app.use(require("./routes"));
-let mongoDB = "mongodb://user:password1@ds115753.mlab.com:15753/vinny";
+let mongoDB = "mongodb://user:password1@ds115753.mlab.com:15753/emily";
 mongoose.connect(
   mongoDB,
   { useNewUrlParser: true }
