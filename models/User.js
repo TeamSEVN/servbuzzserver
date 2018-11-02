@@ -14,7 +14,7 @@ let EmailSchema = new mongoose.Schema(
 EmailSchema.methods.generateHash = password =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 
-EmailSchema.methods.validPassword = function (password) {
+EmailSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 

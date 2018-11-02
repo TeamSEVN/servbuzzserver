@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
     .catch(error => res.status(500).send(error));
 });
 
-
 router.post("/signup", (req, res) => {
   let password = req.body.password;
   //let passwordcon = req.body.passwordcon;
@@ -45,13 +44,12 @@ router.post("/signin", (req, res) => {
 //checks for email being in the database
 router.post("/check", (req, res) => {
   let email = req.body.email;
-  User.find({ email: email })
-    .then(result =>
-      res
-        .status(200)
-        .send({ count: result.length })
-        .catch(error => res.send(error.message))
-    );
+  User.find({ email: email }).then(result =>
+    res
+      .status(200)
+      .send({ count: result.length })
+      .catch(error => res.send(error.message))
+  );
 });
 
 module.exports = router;
