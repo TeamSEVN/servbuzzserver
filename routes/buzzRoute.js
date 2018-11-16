@@ -4,7 +4,7 @@ let Buzz = mongoose.model("Buzz");
 
 //get a list of unacknowledged buzzes
 router.post("/fetchBuzzes", (req, res) => {
-  Buzz.find({ acknowledged: false })
+  Buzz.find()
     .then(result => res.send(result))
     .catch(error => res.status(500).send(error));
 });
