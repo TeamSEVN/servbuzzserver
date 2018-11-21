@@ -2,7 +2,7 @@
 let mongoose = require("mongoose");
 let bcrypt = require("bcryptjs");
 
-//formatting the JSON object
+//formatting the user object
 let UserSchema = new mongoose.Schema(
   {
     email: { type: String, required: true },

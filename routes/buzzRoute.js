@@ -2,7 +2,7 @@ let router = require("express").Router();
 let mongoose = require("mongoose");
 let Buzz = mongoose.model("Buzz");
 
-//get a list of unacknowledged buzzes
+//get a list of buzzes
 router.post("/fetchBuzzes", (req, res) => {
   Buzz.find()
     .then(result => res.send(result))
@@ -11,7 +11,7 @@ router.post("/fetchBuzzes", (req, res) => {
 
 //add a buzz
 router.post("/createBuzz", (req, res) => {
-  //declares variable message that will receive the table from the props in actions
+  //declares variable message that will receive a message from the buzzor
   let message = req.body.message;
   let newBuzz = new Buzz();
   newBuzz.message = message;
@@ -21,7 +21,7 @@ router.post("/createBuzz", (req, res) => {
     .catch(error => res.status(400).send(error));
 });
 
-//delete the dismissed buzz
+//delete a buzz
 router.delete("/:id", (req, res) => {
   Buzz.findByIdAndDelete(req.params.id)
     .then(result => res.send(result))
