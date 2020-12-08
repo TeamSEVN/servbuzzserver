@@ -18,7 +18,7 @@ require("./models/Buzz");
 app.use(require("./routes"));
 
 //store mongoDB Atlas url
-let mongoDB = "mongodb+srv://user:9TSa4Ety5SJpUkn@servbuzzcluster.embtt.mongodb.net/vinny?retryWrites=true&w=majority
+let mongoDB = "mongodb+srv://user:9TSa4Ety5SJpUkn@servbuzzcluster.embtt.mongodb.net/vinny?retryWrites=true&w=majority"
 //old connection string======let mongoDB = "mongodb://user:password1@ds115753.mlab.com:15753/vinny";
 
 //connect to the database
